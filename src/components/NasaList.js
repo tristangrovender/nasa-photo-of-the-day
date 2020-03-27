@@ -4,17 +4,17 @@ import axios from "axios";
 import NasaCard from "./NasaCard";
 
 function NasaList() {
-    const [pictures, setPictures] = useState([]);
+    const [pictures, setPictures] = useState({});
 
     useEffect(() => {
         axios
             .get(
-                "https://api.nasa.gov/planetary/apod?api_key=t2P6022lPIC13RKHo8XMlq1lwPYdYSoIb91VADud"
+                "https://api.nasa.gov/planetary/apod?api_key=HNIHfZ4hyxOhH1UOZNRGwkOpZshdXFT8ZwUuW6Hd"
             )
             .then(response => {
                 setPictures(response.data);
             });
-    });
+    }, []);
 
     return (
         <div>
