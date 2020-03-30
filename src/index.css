@@ -22,9 +22,17 @@ body {
     margin-left: 5%;
 }
 
+.description h1 {
+    margin-block-end: 1em;
+}
+
 p {
     width: 600px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+.title {
+    margin: 20px;
 }

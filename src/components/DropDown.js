@@ -1,42 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+    ButtonDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from "reactstrap";
 
-class DropDown extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { value: "3-28-20" };
+const MyButton = props => {
+    const [dropdownOpen, setOpen] = useState(false);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    const toggle = () => setOpen(!dropdownOpen);
 
-    handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
+    return (
+        <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle color="secondary" caret>
+                Choose a date
+            </DropdownToggle>
+            <DropdownMenu>
+                <DropdownItem header>Available:</DropdownItem>
+                <DropdownItem>3-29-20</DropdownItem>
+                <DropdownItem>3-28-20</DropdownItem>
+                <DropdownItem>3-27-20</DropdownItem>
+                <DropdownItem>3-26-20</DropdownItem>
+                <DropdownItem>3-25-20</DropdownItem>
+            </DropdownMenu>
+        </ButtonDropdown>
+    );
+};
 
-    handleSubmit(event) {
-        alert("The date you selected is: " + this.state.value);
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Select a date:
-                    <select
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    >
-                        <option value="3-28-20">3-28-20</option>
-                        <option value="3-27-20">3-27-20</option>
-                        <option value="3-26-20">3-26-20</option>
-                        <option value="3-25-20">3-25-20</option>
-                    </select>
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        );
-    }
-}
-
-export default DropDown;
+export default MyButton;

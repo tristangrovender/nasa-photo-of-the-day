@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import NasaCard from "./NasaCard";
-import DropDown from "./DropDown";
+// import DropDown from "./DropDown";
 
 function NasaList() {
     const [pictures, setPictures] = useState({});
@@ -25,7 +25,7 @@ function NasaList() {
                 explanation={pictures.explanation}
                 url={pictures.url}
             />
-            <DropDown />
+            {/* <DropDown /> */}
         </div>
     );
 }
